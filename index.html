@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opus Tech Studios - IT & Sales</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-color: #6a5acd; /* SlateBlue */
+            --primary-dark: #5a4acb;
+            --primary-light: #9a8bfa;
+            --accent-color: #ff7f50; /* Coral */
+            --accent-dark: #e66c42;
+            --accent-light: #ffa07a;
+            --bg-light: #f9f8ff;
+            --bg-dark: #292639;
+            --text-dark: #2d2b38;
+            --text-medium: #4e4b61;
+            --text-light: #6d6a7f;
+            --card-bg: #ffffff;
+            --border-color: #e4e1f9;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .section {
+            padding: 100px 0;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            display: block;
+        }
+
+        /* Enhanced Dynamic Background Elements */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Animated particles for home section */
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--primary-light);
+            opacity: 0.3;
+            animation: float-particle 15s infinite linear;
+        }
+        
+        @keyframes float-particle {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+        
+        /* Generate particles with JavaScript */
+        
+        /* Tech-inspired grid pattern */
+        .tech-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(106, 90, 205, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(106, 90, 205, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+        }
+        
+        /* Circuit board pattern for IT section */
+        .circuit-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-light);
+            opacity: 0.15;
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M15,15 L85,15 L85,85 L15,85 Z' fill='none' stroke='%23000' stroke-width='1'/%3E%3Cpath d='M30,15 L30,30 L15,30 M70,15 L70,30 L85,30 M30,85 L30,70 L15,70 M70,85 L70,70 L85,70' fill='none' stroke='%23000' stroke-width='1'/%3E%3Ccircle cx='30' cy='30' r='3' fill='%23000'/%3E%3Ccircle cx='70' cy='30' r='3' fill='%23000'/%3E%3Ccircle cx='30' cy='70' r='3' fill='%23000'/%3E%3Ccircle cx='70' cy='70' r='3' fill='%23000'/%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        /* Animated gradient mesh for home */
+        .gradient-mesh {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg, 
+                rgba(106, 90, 205, 0.1), 
+                rgba(106, 90, 205, 0) 70%
+            ), linear-gradient(
+                135deg, 
+                rgba(255, 127, 80, 0.1), 
+                rgba(255, 127, 80, 0) 70%
+            );
+            background-size: 200% 200%;
+            animation: gradient-shift 15s ease infinite;
+            z-index: 0;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        
+        /* Animated wave pattern */
+        .wave-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 200px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            left: -50%;
+            opacity: 0.05;
+            animation: wave-animation 25s infinite linear;
+        }
+        
+        .wave:nth-child(2) {
+            top: 20%;
+            animation-delay: -5s;
+            animation-duration: 17s;
+            background: var(--accent-color);
+        }
+        
+        .wave:nth-child(3) {
+            top: 50%;
+            animation-delay: -2s;
+            animation-duration: 22s;
+            background: var(--primary-light);
+        }
+        
+        .wave:nth-child(4) {
+            top: 70%;
+            animation-delay: -9s;
+            animation-duration: 15s;
+            background: var(--accent-light);
+        }
+        
+        @keyframes wave-animation {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            100% { transform: translateX(-30%) translateY(0) rotate(360deg); }
+        }
+        
+        /* Diagonal stripes pattern */
+        .diagonal-stripes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--primary-color) 0,
+                var(--primary-color) 1px,
+                transparent 1px,
+                transparent 10px
+            );
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        /* Dotted pattern animation */
+        .dotted-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: 20px 20px;
+            background-image: radial-gradient(
+                circle at 10px 10px,
+                var(--primary-color) 1.5px,
+                transparent 1.5px
+            );
+            opacity: 0.08;
+            animation: move-dots 60s linear infinite;
+            z-index: 0;
+        }
+        
+        @keyframes move-dots {
+            0% { background-position: 0 0; }
+            100% { background-position: 500px 500px; }
+        }
+        
+        /* Hexagonal pattern for sales section */
+        .hex-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-color);
+            opacity: 0.03;
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M50 20L85 40L85 80L50 100L15 80L15 40Z' fill='%23000'/%3E%3C/svg%3E");
+            mask-size: 70px 70px;
+            z-index: 0;
+        }
+        
+        /* 3D boxes pattern */
+        .boxes-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-color);
+            opacity: 0.03;
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M0 0h10v10H0zm10 10h10v10H10zm-10 10h10v10H0zm30-20h10v10H30zm10 10h10v10H40zm-10 10h10v10H30zm-10 10h10v10H20zm10 10h10v10H30zm10 10h10v10H40z' fill='%23000'/%3E%3C/svg%3E");
+            mask-size: 60px 60px;
+            z-index: 0;
+        }
+        
+        /* Flowing lines background */
+        .flowing-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .line {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--primary-color), transparent);
+            opacity: 0.1;
+            animation: flow-animation 8s infinite linear;
+        }
+        
+        @keyframes flow-animation {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        /* Home section specific styling */
+        .home-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .home-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(106, 90, 205, 0.2) 0%, transparent 70%);
+            animation: rotate-gradient 30s infinite linear;
+            z-index: 0;
+        }
+        
+        @keyframes rotate-gradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* About section enhanced background */
+        .about-bg {
+            background: linear-gradient(135deg, rgba(106, 90, 205, 0.05) 0%, transparent 50%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-bg::after {
+            content: '';
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            top: -100%;
+            left: -100%;
+            background: radial-gradient(ellipse at center, rgba(255, 127, 80, 0.1) 0%, transparent 70%);
+            opacity: 0.5;
+            animation: pulse-gradient 15s infinite ease-in-out;
+            z-index: 0;
+        }
+        
+        @keyframes pulse-gradient {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.3; }
+            100% { transform: scale(1); opacity: 0.5; }
+        }
+
+        /* IT Services enhanced background */
+        .it-services-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .it-services-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M10,90 L90,90 L90,10' fill='none' stroke='%236a5acd' stroke-width='0.5'/%3E%3Cpath d='M20,80 L80,80 L80,20' fill='none' stroke='%236a5acd' stroke-width='0.5'/%3E%3Cpath d='M30,70 L70,70 L70,30' fill='none' stroke='%236a5acd' stroke-width='0.5'/%3E%3Cpath d='M40,60 L60,60 L60,40' fill='none' stroke='%236a5acd' stroke-width='0.5'/%3E%3C/svg%3E");
+            background-size: 100px 100px;
+            opacity: 0.07;
+            z-index: 0;
+        }
+
+        /* Sales Services enhanced background */
+        .sales-services-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sales-services-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 5L55 20V50L30 65L5 50V20L30 5Z' fill='none' stroke='%23ff7f50' stroke-width='0.5'/%3E%3C/svg%3E");
+            background-size: 60px 60px;
+            opacity: 0.07;
+            z-index: 0;
+        }
+
+        /* Projects section enhanced background */
+        .projects-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .projects-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-light) 25%, transparent 25%, transparent 75%, var(--primary-light) 75%),
+                        linear-gradient(45deg, var(--primary-light) 25%, transparent 25%, transparent 75%, var(--primary-light) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        /* Contact enhanced background */
+        .contact-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(106, 90, 205, 0.15) 0%, transparent 25%),
+                        radial-gradient(circle at 80% 70%, rgba(255, 127, 80, 0.1) 0%, transparent 20%);
+            z-index: 0;
+        }
+        
+        .contact-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%236a5acd'/%3E%3C/svg%3E");
+            background-size: 40px 40px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        /* Subtle animations for floating elements */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animated-element {
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        /* Shine animation for cards */
+        @keyframes shine {
+            0% { background-position: -100% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to right, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0) 100%
+            );
+            background-size: 200% 100%;
+            animation: shine 5s infinite linear;
+            z-index: 1;
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 90px;
+            height: 90px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100;
+            font-size: 1.8rem;
+            overflow: hidden;
+        }
+        
+        .floating-btn::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.5s ease-out;
+        }
+        
+        .floating-btn:hover::before {
+            transform: scale(2);
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background-color: var(--accent-dark);
+        }
+        
+        /* Tech-inspired button effect */
+        .tech-btn {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .tech-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M10,50 L50,10 L90,50 L50,90 Z' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.2'/%3E%3C/svg%3E");
+            background-size: 100px 100px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .tech-btn:hover::after {
+            opacity: 1;
+        }
+
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 15px;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+            z-index: 2;
+        }
+        
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-image {
+            height: 200px;
+            background-color: #e0e0e0;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-video {
+            height: 200px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background-color: #e0e0e0;
+        }
+        
+        .project-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-video::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(106, 90, 205, 0.2), rgba(255, 127, 80, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover .project-video::after {
+            opacity: 1;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            max-width: 350px;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle at center, rgba(106, 90, 205, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.5s ease;
+            z-index: -1;
+            transform: scale(0.5);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-light);
+        }
+
+        .team-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            width: 100%;
+            display: block;
+        }
+
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(106, 90, 205, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 90%, rgba(255, 127, 80, 0.05) 0%, transparent 20%);
+            z-index: -1;
+        }
+        
+        .team-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M0,20 L40,20 M20,0 L20,40' stroke='%236a5acd' stroke-width='0.5' opacity='0.5'/%3E%3C/svg%3E");
+            background-size: 40px 40px;
+            opacity: 0.02;
+            z-index: -1;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            max-width: 500px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.2);
+        }
+        
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: var(--text-light);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .contact-form input:focus::placeholder,
+        .contact-form textarea:focus::placeholder {
+            opacity: 0.7;
+            transform: translateX(10px);
+        }
+
+        .contact-form button {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .contact-form button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+        
+        .contact-form button:hover::before {
+            transform: translateX(100%);
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 90, 205, 0.4);
+        }
+
+        .tag-pill {
+            padding: 0.25rem 0.75rem;
+            background-color: var(--primary-light);
+            color: var(--bg-dark);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .tag-pill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .tag-pill:hover {
+            transform: translateY(-2px);
+        }
+        
+        .tag-pill:hover::after {
+            opacity: 1;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+            animation: slide-divider 2s infinite ease-in-out;
+        }
+        
+        @keyframes slide-divider {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(200%); }
+        }
+
+        .icon-circle {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .icon-circle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .service-card:hover .icon-circle::before {
+            opacity: 1;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            color: var(--text-dark);
+            font-weight: 700;
+            width: 100%;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .contact-info-box {
+            text-align: center;
+            max-width: 300px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .contact-info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='10' fill='none' stroke='%236a5acd' stroke-width='0.5'/%3E%3C/svg%3E");
+            background-size: 40px 40px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .contact-info-box:hover::before {
+            opacity: 0.05;
+        }
+
+        .contact-info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-light);
+        }
+
+        .contact-icon-circle {
+            background-color: rgba(106, 90, 205, 0.1);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-icon-circle::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(106, 90, 205, 0.2) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: scale(0);
+        }
+        
+        .contact-info-box:hover .contact-icon-circle {
+            transform: scale(1.1);
+        }
+        
+        .contact-info-box:hover .contact-icon-circle::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Footer enhancement */
+        footer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(106, 90, 205, 0.2) 0%, transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(255, 127, 80, 0.2) 0%, transparent 30%);
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        footer::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(41, 38, 57, 0.5), transparent);
+            z-index: 0;
+        }
+
+        /* Decorative elements */
+        .circle-decoration {
+            position: absolute;
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.05;
+            overflow: hidden;
+        }
+        
+        .circle-decoration::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-radial-gradient(
+                circle at center,
+                var(--primary-color) 0,
+                var(--primary-color) 1px,
+                transparent 1px,
+                transparent 6px
+            );
+            opacity: 0.3;
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background-color: var(--primary-color);
+            top: -100px;
+            right: -100px;
+            animation: float-circle 20s infinite linear;
+        }
+        
+        @keyframes float-circle {
+            0% { transform: rotate(0deg) translateY(0); }
+            50% { transform: rotate(180deg) translateY(20px); }
+            100% { transform: rotate(360deg) translateY(0); }
+        }
+
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            background-color: var(--accent-color);
+            bottom: -50px;
+            left: -50px;
+            animation: float-circle 15s infinite linear reverse;
+        }
+
+        .circle-3 {
+            width: 150px;
+            height: 150px;
+            border: 15px solid var(--primary-color);
+            bottom: 100px;
+            right: 100px;
+            opacity: 0.1;
+            animation: pulse 8s infinite ease-in-out;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .wavy-decoration {
+            position: absolute;
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(45deg, 
+                var(--primary-light) 0%, var(--primary-light) 25%, 
+                transparent 25%, transparent 50%, 
+                var(--primary-light) 50%, var(--primary-light) 75%, 
+                transparent 75%, transparent 100%);
+            background-size: 24px 24px;
+            opacity: 0.1;
+            animation: wave-move 20s linear infinite;
+        }
+        
+        @keyframes wave-move {
+            0% { background-position: 0 0; }
+            100% { background-position: 500px 0; }
+        }
+
+        .wavy-top {
+            top: 0;
+        }
+
+        .wavy-bottom {
+            bottom: 0;
+            animation-direction: reverse;
+        }
+        
+        /* Tech dot grid */
+        .tech-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(var(--primary-light) 1px, transparent 1px),
+                radial-gradient(var(--accent-light) 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        /* 3D box decoration */
+        .box-3d {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            transform-style: preserve-3d;
+            transform: rotateX(45deg) rotateY(45deg);
+            animation: rotate-box 20s infinite linear;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        @keyframes rotate-box {
+            0% { transform: rotateX(45deg) rotateY(0deg); }
+            100% { transform: rotateX(45deg) rotateY(360deg); }
+        }
+        
+        .box-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--primary-color);
+            background-color: rgba(106, 90, 205, 0.1);
+        }
+        
+        .box-front { transform: translateZ(50px); }
+        .box-back { transform: translateZ(-50px) rotateY(180deg); }
+        .box-right { transform: translateX(50px) rotateY(90deg); }
+        .box-left { transform: translateX(-50px) rotateY(-90deg); }
+        .box-top { transform: translateY(-50px) rotateX(90deg); }
+        .box-bottom { transform: translateY(50px) rotateX(-90deg); }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                place-items: center;
+            }
+
+            .service-card, .project-card {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .floating-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 1.5rem;
+            }
+
+            .team-section {
+                padding: 2rem;
+            }
+
+            .contact-form {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full bg-white shadow z-50">
+        <div class="container mx-auto py-4 px-6 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold" style="color: var(--primary-color);">Opus Tech Studios</a>
+            <div class="hidden md:flex items-center">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#it-services" class="nav-link">IT Services</a>
+                <a href="#sales-services" class="nav-link">Sales Services</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="block md:hidden">
+                <button id="menu-toggle" class="focus:outline-none">
+                    <i class="fas fa-bars" style="color: var(--text-dark);"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full py-4 px-6 shadow-inner">
+            <a href="#home" class="block py-2 nav-link">Home</a>
+            <a href="#about" class="block py-2 nav-link">About Us</a>
+            <a href="#it-services" class="block py-2 nav-link">IT Services</a>
+            <a href="#sales-services" class="block py-2 nav-link">Sales Services</a>
+            <a href="#projects" class="block py-2 nav-link">Projects</a>
+            <a href="#contact" class="block py-2 nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Floating Contact Button -->
+    <a href="#contact" class="floating-btn">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+    <!-- Home Section -->
+    <section id="home" class="section">
+        <div class="bg-pattern home-bg"></div>
+        <div class="gradient-mesh"></div>
+        <div class="particles-container" id="particles"></div>
+        <div class="circle-decoration circle-1"></div>
+        <div class="circle-decoration circle-2"></div>
+        <div class="container">
+            <div class="home-content flex flex-col items-center justify-center text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+                    Welcome to <span style="color: var(--primary-color);">Opus Tech Studios</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8" style="color: var(--text-medium);">Your Partner in IT & Sales Solutions</p>
+                <div class="flex justify-center space-x-4 mb-8">
+                    <a href="#projects" class="px-8 py-3 rounded-md hover:shadow-lg transition duration-300 tech-btn" style="background-color: var(--primary-color); color: white;">Our Work</a>
+                    <a href="#contact" class="px-8 py-3 rounded-md hover:shadow-lg transition duration-300 tech-btn" style="background-color: white; color: var(--primary-color); border: 1px solid var(--primary-color);">Contact Us</a>
+                </div>
+                <div class="flex justify-center mt-4 space-x-6 mb-8">
+                    <a href="#" class="transition" style="color: var(--text-light);">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="transition" style="color: var(--text-light);">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                    <a href="#" class="transition" style="color: var(--text-light);">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="#" class="transition" style="color: var(--text-light);">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                </div>
+                <div class="w-64 h-64 md:w-80 md:h-80 rounded-full flex items-center justify-center text-white text-8xl font-bold animated-element shine-effect" style="background: linear-gradient(135deg, var(--primary-color), var(--accent-color));">
+                    OTS
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section" style="background-color: white;">
+        <div class="bg-pattern about-bg"></div>
+        <div class="tech-grid"></div>
+        <div class="circle-decoration circle-3"></div>
+        <div class="wavy-decoration wavy-top"></div>
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 section-heading">About Us</h2>
+                <div class="divider"></div>
+                <p class="mt-6 max-w-3xl mx-auto" style="color: var(--text-medium);">Opus Tech Studios is a leading provider of IT and Sales solutions, dedicated to helping businesses thrive in the digital age.</p>
+            </div>
+            
+            <div class="team-section">
+                <div class="dotted-pattern"></div>
+                <h3 class="text-2xl font-semibold mb-6 text-center" style="color: var(--primary-color);">Our IT Team</h3>
+                <div class="flex flex-col items-center text-center gap-8">
+                    <div class="w-full h-64 rounded-lg shine-effect mb-4" style="background-color: var(--primary-light);"></div>
+                    <div>
+                        <p class="mb-4 leading-relaxed" style="color: var(--text-medium);">
+                            Our IT team consists of highly skilled professionals with expertise in software development, cloud solutions, cybersecurity, and infrastructure management. With a combined experience of over 50 years, our team brings innovative solutions to complex technical challenges.
+                        </p>
+                        <p class="mb-4 leading-relaxed" style="color: var(--text-medium);">
+                            We believe in staying ahead of technological trends to provide our clients with cutting-edge solutions that drive business growth and operational efficiency.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-3 mt-4">
+                            <span class="tag-pill">Software Development</span>
+                            <span class="tag-pill">Cloud Solutions</span>
+                            <span class="tag-pill">Cybersecurity</span>
+                            <span class="tag-pill">IT Infrastructure</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-section">
+                <div class="diagonal-stripes"></div>
+                <h3 class="text-2xl font-semibold mb-6 text-center" style="color: var(--primary-color);">Our Sales Team</h3>
+                <div class="flex flex-col items-center text-center gap-8">
+                    <div class="w-full h-64 rounded-lg shine-effect mb-4" style="background-color: var(--accent-light);"></div>
+                    <div>
+                        <p class="mb-4 leading-relaxed" style="color: var(--text-medium);">
+                            Our sales team is comprised of industry experts who understand the marketplace and the unique challenges businesses face. We take a consultative approach to sales, ensuring that we provide solutions that genuinely meet our clients' needs.
+                        </p>
+                        <p class="mb-4 leading-relaxed" style="color: var(--text-medium);">
+                            With a focus on building long-term relationships, our sales professionals work closely with clients to understand their goals and develop strategies that deliver measurable results.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-3 mt-4">
+                            <span class="tag-pill" style="background-color: var(--accent-light); color: var(--bg-dark);">Business Development</span>
+                            <span class="tag-pill" style="background-color: var(--accent-light); color: var(--bg-dark);">Strategic Partnerships</span>
+                            <span class="tag-pill" style="background-color: var(--accent-light); color: var(--bg-dark);">Account Management</span>
+                            <span class="tag-pill" style="background-color: var(--accent-light); color: var(--bg-dark);">Solution Selling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wavy-decoration wavy-bottom"></div>
+    </section>
+
+    <!-- IT Services Section -->
+    <section id="it-services" class="section" style="background-color: var(--bg-light);">
+        <div class="bg-pattern it-services-bg"></div>
+        <div class="circuit-pattern"></div>
+        <div class="wave-bg">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 section-heading">IT Services</h2>
+                <div class="divider"></div>
+                <p class="mt-6 max-w-3xl mx-auto" style="color: var(--text-medium);">We provide comprehensive IT solutions designed to optimize your business operations and drive digital transformation.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card">
+                    <div class="flex items-center mb-4">
+                        <div class="icon-circle">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--primary-color);">Custom Software Development</h3>
+                    </div>
+                    <p style="color: var(--text-medium);">
+                        Tailored software solutions designed to address your specific business challenges and streamline operations.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="flex items-center mb-4">
+                        <div class="icon-circle">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--primary-color);">Cloud Solutions</h3>
+                    </div>
+                    <p style="color: var(--text-medium);">
+                        Scalable cloud infrastructure and migration services to enhance flexibility and reduce operational costs.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="flex items-center mb-4">
+                        <div class="icon-circle">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--primary-color);">Cybersecurity</h3>
+                    </div>
+                    <p style="color: var(--text-medium);">
+                        Comprehensive security solutions to protect your data, systems, and reputation from evolving threats.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="flex items-center mb-4">
+                        <div class="icon-circle">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--primary-color);">IT Infrastructure</h3>
+                    </div>
+                    <p style="color: var(--text-medium);">
+                        Design, implementation, and management of robust IT infrastructure tailored to your business needs.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="flex items-center mb-4">
+                        <div class="icon-circle">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--primary-color);">Data Management</h3>
+                    </div>
+                    <p style="color: var(--text-medium);">
+                        End-to-end data solutions including storage, backup, recovery, and analytics to drive business intelligence.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="flex items-center mb-4">
+                        <div class="icon-circle">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--primary-color);">IT Support & Maintenance</h3>
+                    </div>
+                    <p style="color: var(--text-medium);">
+                        Reliable technical support and proactive maintenance services to ensure business continuity.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sales Services Section -->
+    <section id="sales-services" class="section" style="background-color: white;">
+        <div class="bg-pattern sales-services-bg"></div>
+        <div class="hex-pattern"></div>
+        <div class="flowing-lines" id="flowing-lines"></div>
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 section-heading">Sales Services</h2>
+                <div class="divider"></div>
+                <p class="mt-6 max-w-3xl mx-auto" style="color: var(--text-medium);">Our sales solutions are designed to help you reach new customers, enhance your market presence, and drive revenue growth.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card">
+                    <div class="flex items-center mb-4">
+                        <div class="icon-circle" style="background-color: var(--accent-light); color: var(--accent-dark);">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--accent-color);">Sales Strategy Development</h3>
+                    </div>
+                    <p style="color: var(--text-medium);">
+                        Custom sales strategies aligned with your business goals and market opportunities.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="flex items-center mb-4">
+                        <div class="icon-circle" style="background-color: var(--accent-light); color: var(--accent-dark);">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--accent-color);">Lead Generation</h3>
+                    </div>
+                    <p style="color: var(--text-medium);">
+                        Targeted lead generation campaigns to fill your sales pipeline with qualified prospects.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="flex items-center mb-4">
+                        <div class="icon-circle" style="background-color: var(--accent-light); color: var(--accent-dark);">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--accent-color);">B2B Sales Consulting</h3>
+                    </div>
+                    <p style="color: var(--text-medium);">
+                        Expert guidance on optimizing your B2B sales processes and closing enterprise deals.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="flex items-center mb-4">
+                        <div class="icon-circle" style="background-color: var(--accent-light); color: var(--accent-dark);">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--accent-color);">Sales Enablement</h3>
+                    </div>
+                    <p style="color: var(--text-medium);">
+                        Tools, content, and training to empower your sales team and enhance performance.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="flex items-center mb-4">
+                        <div class="icon-circle" style="background-color: var(--accent-light); color: var(--accent-dark);">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--accent-color);">Market Expansion</h3>
+                    </div>
+                    <p style="color: var(--text-medium);">
+                        Strategic support for entering new markets and reaching untapped customer segments.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="flex items-center mb-4">
+                        <div class="icon-circle" style="background-color: var(--accent-light); color: var(--accent-dark);">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--accent-color);">Sales Process Optimization</h3>
+                    </div>
+                    <p style="color: var(--text-medium);">
+                        Analysis and refinement of your sales processes to increase efficiency and conversion rates.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section" style="background-color: var(--bg-light);">
+        <div class="bg-pattern projects-bg"></div>
+        <div class="boxes-pattern"></div>
+        <div class="tech-dots"></div>
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 section-heading">Our Projects</h2>
+                <div class="divider"></div>
+                <p class="mt-6 max-w-3xl mx-auto" style="color: var(--text-medium);">Explore our portfolio of successful projects delivered to clients across various industries.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-video">
+                        <video class="w-full h-full object-cover" controls>
+                            <source src="https://drive.google.com/file/d/12s6mckDUnwM0aYjk8k0hpnIfG9xzSRLg/view?usp=sharing/uc?export=view&id=12s6mckDUnwM0aYjk8k0hpnIfG9xzSRLg" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--primary-color);">Enterprise Resource Planning System</h3>
+                        <p class="mb-4" style="color: var(--text-medium);">A comprehensive ERP solution for a manufacturing company to streamline operations and enhance productivity.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">Java</span>
+                            <span class="tag-pill">React</span>
+                            <span class="tag-pill">Oracle</span>
+                        </div>
+                        <a href="#" class="font-medium inline-flex items-center" style="color: var(--primary-color);">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-video">
+                        <video class="w-full h-full object-cover" controls>
+                            <source src="https://drive.google.com/uc?export=view&id=YOUR_VIDEO_ID_2" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--primary-color);">E-Commerce Platform</h3>
+                        <p class="mb-4" style="color: var(--text-medium);">A scalable e-commerce solution for a retail client with integrated inventory management and payment processing.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">Node.js</span>
+                            <span class="tag-pill">React</span>
+                            <span class="tag-pill">MongoDB</span>
+                        </div>
+                        <a href="#" class="font-medium inline-flex items-center" style="color: var(--primary-color);">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-video">
+                        <video class="w-full h-full object-cover" controls>
+                            <source src="https://drive.google.com/uc?export=view&id=YOUR_VIDEO_ID_3" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--primary-color);">Healthcare Management System</h3>
+                        <p class="mb-4" style="color: var(--text-medium);">A secure and compliant healthcare application for patient management and medical record keeping.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">Python</span>
+                            <span class="tag-pill">Django</span>
+                            <span class="tag-pill">PostgreSQL</span>
+                        </div>
+                        <a href="#" class="font-medium inline-flex items-center" style="color: var(--primary-color);">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-video">
+                        <video class="w-full h-full object-cover" controls>
+                            <source src="https://drive.google.com/uc?export=view&id=YOUR_VIDEO_ID_4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--accent-color);">CRM Solution</h3>
+                        <p class="mb-4" style="color: var(--text-medium);">A customized customer relationship management system for a financial services company with analytics dashboard.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill" style="background-color: var(--accent-light); color: var(--bg-dark);">C#</span>
+                            <span class="tag-pill" style="background-color: var(--accent-light); color: var(--bg-dark);">.NET</span>
+                            <span class="tag-pill" style="background-color: var(--accent-light); color: var(--bg-dark);">SQL Server</span>
+                        </div>
+                        <a href="#" class="font-medium inline-flex items-center" style="color: var(--accent-color);">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-video">
+                        <video class="w-full h-full object-cover" controls>
+                            <source src="https://drive.google.com/uc?export=view&id=YOUR_VIDEO_ID_5" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--accent-color);">Supply Chain Management System</h3>
+                        <p class="mb-4" style="color: var(--text-medium);">An end-to-end solution for optimizing logistics, inventory, and supplier management for a distribution company.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill" style="background-color: var(--accent-light); color: var(--bg-dark);">Java</span>
+                            <span class="tag-pill" style="background-color: var(--accent-light); color: var(--bg-dark);">Spring Boot</span>
+                            <span class="tag-pill" style="background-color: var(--accent-light); color: var(--bg-dark);">MySQL</span>
+                        </div>
+                        <a href="#" class="font-medium inline-flex items-center" style="color: var(--accent-color);">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-video">
+                        <video class="w-full h-full object-cover" controls>
+                            <source src="https://drive.google.com/uc?export=view&id=YOUR_VIDEO_ID_6" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--accent-color);">Business Intelligence Dashboard</h3>
+                        <p class="mb-4" style="color: var(--text-medium);">A data visualization and analytics platform that provides actionable insights for strategic decision-making.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill" style="background-color: var(--accent-light); color: var(--bg-dark);">Python</span>
+                            <span class="tag-pill" style="background-color: var(--accent-light); color: var(--bg-dark);">React</span>
+                            <span class="tag-pill" style="background-color: var(--accent-light); color: var(--bg-dark);">AWS</span>
+                        </div>
+                        <a href="#" class="font-medium inline-flex items-center" style="color: var(--accent-color);">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background-color: white;">
+        <div class="bg-pattern contact-bg"></div>
+        <div class="dotted-pattern"></div>
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 section-heading">Contact Us</h2>
+                <div class="divider"></div>
+                <p class="mt-6 max-w-3xl mx-auto" style="color: var(--text-medium);">Ready to discuss your next project? Get in touch with our team to explore how we can help your business succeed.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <!-- Contact Form Left -->
+                <div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="mb-4">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-4">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" placeholder="Subject">
+                        </div>
+                        <div class="mb-4">
+                            <textarea rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="px-8 py-3 rounded-md hover:shadow-lg transition duration-300 w-full md:w-auto">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+                <!-- Contact Info Boxes Right -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="contact-info-box">
+                        <div class="contact-icon-circle" style="color: var(--primary-color);">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--primary-color);">Location</h3>
+                        <p style="color: var(--text-medium);">New Delhi,<br>India</p>
+                    </div>
+                    <div class="contact-info-box">
+                        <div class="contact-icon-circle" style="color: var(--primary-color);">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--primary-color);">Email</h3>
+                        <p style="color: var(--text-medium);"<p></p>opustechstudios@gmail.com</p>
+                    </div>
+                    <div class="contact-info-box">
+                        <div class="contact-icon-circle" style="color: var(--accent-color);">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--accent-color);">Phone</h3>
+                        <p style="color: var(--text-medium);">+91 9934800985<br>+91 8800659210<br>+91 8800272540</p>
+                    </div>
+                    <div class="contact-info-box">
+                        <div class="contact-icon-circle" style="color: var(--accent-color);">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--accent-color);">Business Hours</h3>
+                        <p style="color: var(--text-medium);">Monday - Friday: 9AM - 6PM<br>Weekend: Closed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--bg-dark); color: white;" class="py-12 relative">
+        <div class="wavy-decoration wavy-top" style="opacity: 0.05;"></div>
+        <div class="container">
+            <div class="flex-row-center">
+                <div class="mb-6 md:mb-0 text-center">
+                    <h2 class="text-2xl font-bold" style="color: var(--primary-light);">Opus Tech Studios</h2>
+                    <p style="color: #a19dc2;" class="mt-2">Your Partner in IT & Sales Solutions</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" style="color: #a19dc2;" class="hover:text-white transition">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" style="color: #a19dc2;" class="hover:text-white transition">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" style="color: #a19dc2;" class="hover:text-white transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" style="color: #a19dc2;" class="hover:text-white transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #3d3a52;" class="mt-8 pt-8 text-center">
+                <p style="color: #a19dc2;">&copy; 2025 Opus Tech Studios. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+            
+            setTimeout(() => {
+                alert('Thank you! Your message has been sent successfully.');
+                contactForm.reset();
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalText;
+            }, 1500);
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Generate flowing lines in the Sales section
+        const flowingLines = document.getElementById('flowing-lines');
+        if (flowingLines) {
+            for (let i = 0; i < 20; i++) {
+                const line = document.createElement('div');
+                line.classList.add('line');
+                line.style.left = `${Math.random() * 100}%`;
+                line.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                line.style.animationDelay = `${Math.random() * 5}s`;
+                flowingLines.appendChild(line);
+            }
+        }
+        
+        // Generate particles for home section
+        const particlesContainer = document.getElementById('particles');
+        if (particlesContainer) {
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size
+                const size = Math.random() * 20 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration
+                particle.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                
+                // Random delay
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // Random opacity
+                particle.style.opacity = `${Math.random() * 0.3 + 0.05}`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // 3D hover effect for project cards
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width;
+                const y = (e.clientY - rect.top) / rect.height;
+                
+                // Calculate rotation angles based on mouse position
+                const tiltX = (y - 0.5) * 10;
+                const tiltY = (x - 0.5) * -10;
+                
+                // Apply the 3D transform
+                this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-10px)`;
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                // Reset transform on mouse leave
+                this.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    this.style.transform = 'none';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
+
